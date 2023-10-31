@@ -94,7 +94,7 @@ def preprocessing(df):
     return df
 
 if __name__ == "__main__":
-        folder_path = os.path.join(os.path.dirname(__file__), 'data')
+    folder_path = os.path.join(os.path.dirname(__file__), 'data')
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
     else:
