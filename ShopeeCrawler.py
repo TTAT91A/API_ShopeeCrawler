@@ -9,13 +9,11 @@ from datetime import date
 def scrapeProduct():
     
     df_product = pd.DataFrame()
+
+    ids = [24710134,60297616,92937520,108136164,473918762,210001661,238618977, 13521914, 243460299, 835435, 277366270]
     
-    urls = ["https://shopee.vn/api/v4/recommend/recommend?bundle=shop_page_product_tab_main&limit=99999&offset=0&shopid=24710134",
-           "https://shopee.vn/api/v4/recommend/recommend?bundle=shop_page_product_tab_main&limit=99999&offset=0&shopid=60297616",
-           "https://shopee.vn/api/v4/recommend/recommend?bundle=shop_page_product_tab_main&limit=99999&offset=0&shopid=92937520",
-           "https://shopee.vn/api/v4/recommend/recommend?bundle=shop_page_product_tab_main&limit=99999&offset=0&shopid=108136164"]
-    
-    for url in urls:
+    for id in ids:
+        url = "https://shopee.vn/api/v4/recommend/recommend?bundle=shop_page_product_tab_main&limit=99999&offset=0&shopid=" + str(id)
         response = requests.get(url)
         jsondata = response.json()
 
