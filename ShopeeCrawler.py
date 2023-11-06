@@ -9,7 +9,7 @@ from datetime import date
 def scrapeProduct():
     
     df_product = pd.DataFrame()
-
+    
     ids = [24710134,60297616,92937520,108136164,473918762,210001661,238618977, 13521914, 243460299, 835435, 277366270]
     
     for id in ids:
@@ -44,38 +44,41 @@ def scrapeProduct():
             rating_count_5 = product["item_rating"]["rating_count"][5]
             rating_star = product["item_rating"]["rating_star"]
             shop_location = product["shop_location"]
-            prod_row = pd.Series([shopid, shop_name, name, currency, stock, ctime, historical_sold, liked_count, catid, 
+            crawl_date = date.today()
+            prod_row = pd.Series([itemid, shopid, shop_name, name, currency, stock, ctime, historical_sold, liked_count, catid, 
                                   brand, price, price_min, price_max, price_min_before_discount, price_max_before_discount, 
                                   raw_discount, rating_total, rating_count_1, rating_count_2, rating_count_3, rating_count_4, 
-                                  rating_count_5, rating_star, shop_location])
-            row_df_prod = pd.DataFrame([prod_row], index = [itemid])
+                                  rating_count_5, rating_star, shop_location, crawl_date])
+            row_df_prod = pd.DataFrame([prod_row])
             df_product = pd.concat([df_product, row_df_prod])
 
            
-    df_product = df_product.rename(columns={0: "shop_id", 
-                                            1: "shop_name",
-                                            2: "name", 
-                                            3: "currency", 
-                                            4: "stock",
-                                            5: "ctime",
-                                            6: "historical_sold", 
-                                            7: "liked_count", 
-                                            8: "cat_id", 
-                                            9: "brand", 
-                                            10: "price", 
-                                            11: "price_min", 
-                                            12: "price_max", 
-                                            13: "price_min_before_discount", 
-                                            14: "price_max_before_discount", 
-                                            15: "raw_discount", 
-                                            16: "rating_total",
-                                            17: "rating_1_star",
-                                            18: "rating_2_star",
-                                            19: "rating_3_star",
-                                            20: "rating_4_star",
-                                            21: "rating_5_star",
-                                            22: "rating_star",
-                                            23: "shop_location"}, errors="raise")
+    df_product = df_product.rename(columns={0: "item_id",
+                                            1: "shop_id", 
+                                            2: "shop_name",
+                                            3: "name", 
+                                            4: "currency", 
+                                            5: "stock",
+                                            6: "ctime",
+                                            7: "historical_sold", 
+                                            8: "liked_count", 
+                                            9: "cat_id", 
+                                            10: "brand", 
+                                            11: "price", 
+                                            12: "price_min", 
+                                            13: "price_max", 
+                                            14: "price_min_before_discount", 
+                                            15: "price_max_before_discount", 
+                                            16: "raw_discount", 
+                                            17: "rating_total",
+                                            18: "rating_1_star",
+                                            19: "rating_2_star",
+                                            20: "rating_3_star",
+                                            21: "rating_4_star",
+                                            22: "rating_5_star",
+                                            23: "rating_star",
+                                            24: "shop_location",
+                                            25: "crawl_date"}, errors="raise")
     
     return df_product
 
