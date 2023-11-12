@@ -105,4 +105,4 @@ if __name__ == "__main__":
     df_product = scrapeProduct()
     df_product = preprocessing(df_product)
 
-    df_product.to_csv(folder_path + "/" + str(date.today())+ ".csv")
+    df_product.to_csv(folder_path + "/" + str(date.today())+ ".csv", index = False)
