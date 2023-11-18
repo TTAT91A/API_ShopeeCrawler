@@ -23,7 +23,7 @@ jobs:
         pip install pyodbc
 
     - name: Run script to save data
-      run: python path/to/your/script.py  # Adjust the path accordingly
+      run: python SaveToDatabase.py 
 
     - name: Complete
       run: echo "Data saved successfully"
