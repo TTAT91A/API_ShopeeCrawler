@@ -1,0 +1,29 @@
+name: Save Data to SQL Server
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run every day at midnight
+
+jobs:
+  save_data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.x
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyodbc
+
+    - name: Run script to save data
+      run: python path/to/your/script.py  # Adjust the path accordingly
+
+    - name: Complete
+      run: echo "Data saved successfully"
