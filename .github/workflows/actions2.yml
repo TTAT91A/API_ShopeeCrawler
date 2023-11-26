@@ -21,10 +21,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install pyodbc
+        pip install pymongo
 
     - name: Run script to save data
-      run: python SaveToDatabase.py 
+      run: python SaveToDatabase_MongoDB.py 
 
     - name: Complete
       run: echo "Data saved successfully"
