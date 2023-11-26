@@ -2,7 +2,7 @@ name: Save Data to SQL Server
 
 on:
   schedule:
-    - cron: '15 11 * * *'  # Run at 11h UTC ~ 18h GMT7
+    - cron: '30 2 * * *'  # Run at 2h30 UTC ~ 9h30 GMT7
 
 jobs:
   save_data:
