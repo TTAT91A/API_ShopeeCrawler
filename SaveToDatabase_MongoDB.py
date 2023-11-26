@@ -23,7 +23,7 @@ def import_csv_to_mongodb(csv_file, collection_name, database_name='Shopee', mon
     # Close MongoDB connection
     client.close()
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     str_today = str(datetime.today().date())
 
     path = 'https://raw.githubusercontent.com/TTAT91A/API_ShopeeCrawler/main/data/' + str_today + '.csv'
