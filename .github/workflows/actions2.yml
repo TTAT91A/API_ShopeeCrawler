@@ -1,4 +1,4 @@
-name: Save Data to SQL Server
+name: Save Data to MongoDB Atlas
 
 on:
   schedule:
