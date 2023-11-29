@@ -2,7 +2,7 @@ name: run crawl shopee API
 
 on:
   schedule:
-    - cron: '0 5 * * *' # At 5h ~12h
+    - cron: '20 5 * * *' # At 5h ~12h
 
 jobs:
   build:
