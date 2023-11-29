@@ -2,7 +2,7 @@ name: Save Data to MongoDB Atlas
 
 on:
   schedule:
-    - cron: '30 2 * * *'  # Run at 2h30 UTC ~ 9h30 GMT7
+    - cron: '0 5 * * *'  # Run at 2h30 UTC ~ 9h30 GMT7
 
 jobs:
   save_data:
