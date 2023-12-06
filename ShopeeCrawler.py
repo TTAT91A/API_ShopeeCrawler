@@ -5,6 +5,19 @@ import time
 import requests
 import os
 from datetime import date
+headers = {
+  "Accept": "*/*",
+  "Accept-Encoding": "gzip, deflate, br",
+  "Accept-Language": "vi,en;q=0.9,en-GB;q=0.8,en-US;q=0.7",
+  "Referer": "https://shopee.vn/",
+  "Sec-Ch-Ua": "\"Microsoft Edge\";v=\"119\", \"Chromium\";v=\"119\", \"Not?A_Brand\";v=\"24\"",
+  "Sec-Ch-Ua-Mobile": "?0",
+  "Sec-Ch-Ua-Platform": "\"Windows\"",
+  "Sec-Fetch-Dest": "empty",
+  "Sec-Fetch-Mode": "cors",
+  "Sec-Fetch-Site": "same-origin",
+  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0"
+}
 
 def scrapeProduct():
     
@@ -14,7 +27,7 @@ def scrapeProduct():
     
     for id in ids:
         url = "https://shopee.vn/api/v4/recommend/recommend?bundle=shop_page_product_tab_main&limit=99999&offset=0&shopid=" + str(id)
-        response = requests.get(url)
+        response = requests.get(url,headers=headers)
         jsondata = response.json()
 
         for product in jsondata['data']['sections'][0]['data']['item']:
@@ -101,7 +114,6 @@ if __name__ == "__main__":
     else:
         pass
 
-    
     df_product = scrapeProduct()
     df_product = preprocessing(df_product)
 
