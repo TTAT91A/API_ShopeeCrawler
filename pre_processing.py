@@ -1,5 +1,5 @@
 import pandas as pd
-import datetime
+# import datetime
 # str_today = str(datetime.datetime.today().date())
 # df = pd.read_csv('https://raw.githubusercontent.com/TTAT91A/API_ShopeeCrawler/main/data/2023-11-29.csv', index_col = 0)
 def pre_processing(df):
