@@ -23,10 +23,20 @@ def import_csv_to_mongodb(df, collection_name, database_name='Shopee', mongo_uri
     client.close()
 
 if __name__ == "__main__":
-    str_today = str(datetime.today().date())
-    path = 'https://raw.githubusercontent.com/TTAT91A/API_ShopeeCrawler/main/data/' + str_today + '.csv'
+    # str_today = str(datetime.today().date())
+    # path = 'https://raw.githubusercontent.com/TTAT91A/API_ShopeeCrawler/main/data/' + str_today + '.csv'
     
     collection_name = "Shopee"
-    df = pd.read_csv(path)
-    df = pre_processing(df)
-    import_csv_to_mongodb(df, collection_name)
+    # df = pd.read_csv(path)
+    # df = pre_processing(df)
+    # import_csv_to_mongodb(df, collection_name)
+
+    today = datetime.today().date()
+    yesterday = today - timedelta(days=1)
+    today_path = 'https://raw.githubusercontent.com/TTAT91A/API_ShopeeCrawler/main/data/' + str(today) +'.csv'
+    yesterday_path = 'https://raw.githubusercontent.com/TTAT91A/API_ShopeeCrawler/main/data/' + str(yesterday) +'.csv'
+
+    today_df = pre_processing(pd.read_csv(today_path))
+    yesterday_df = pre_processing(pd.read_csv(yesterday_path))
+    import_csv_to_mongodb(add_fields(today_df, yesterday_df), collection_name)
+
