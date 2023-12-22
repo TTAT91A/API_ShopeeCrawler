@@ -1,6 +1,6 @@
 import pandas as pd
 from pymongo import MongoClient
-from datetime import datetime
+from datetime import datetime, timedelta
 from pre_processing import *
 # Function to import CSV to MongoDB
 # def import_csv_to_mongodb(csv_file, collection_name, database_name='Shopee', mongo_uri='mongodb://localhost:27017/'):
